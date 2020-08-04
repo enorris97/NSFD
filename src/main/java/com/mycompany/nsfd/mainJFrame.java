@@ -5,6 +5,8 @@
  */
 package com.mycompany.nsfd;
 
+import java.awt.event.ActionEvent;
+
 /**
  *
  * @author Ellie
@@ -98,6 +100,21 @@ public class mainJFrame extends javax.swing.JFrame {
                 new mainJFrame().setVisible(true);
             }
         });
+        
+    }
+    
+    //action when jButtonGo is pressed - runs analysis and opens resultsJFrame, closing this jFrame in the procces
+    
+    public void actionPerformed(ActionEvent e){
+        
+        if(e.getSource()== jButtonGo){
+            //run analysis
+            
+            //onep results jFrame
+            
+            //closes current frame
+            dispose();
+        }
         
     }
 

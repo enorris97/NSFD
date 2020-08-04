@@ -10,5 +10,7 @@ package com.mycompany.nsfd;
  * @author Ellie
  */
 public class StartProgram {
-    
+    public static void main(String args[]){
+        
+    }
 }
