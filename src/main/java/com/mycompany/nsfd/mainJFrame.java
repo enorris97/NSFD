@@ -30,6 +30,7 @@ public class mainJFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaInstructions = new javax.swing.JTextArea();
         jButtonGo = new javax.swing.JButton();
+        jLabelHyperlink = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,16 +45,20 @@ public class mainJFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabelHyperlink.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                .addComponent(jScrollPane1)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabelHyperlink, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
                 .addComponent(jButtonGo)
                 .addGap(26, 26, 26))
         );
@@ -62,9 +67,15 @@ public class mainJFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButtonGo)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonGo)
+                        .addContainerGap(22, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelHyperlink)
+                        .addContainerGap())))
         );
 
         pack();
@@ -121,6 +132,7 @@ public class mainJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonGo;
+    private javax.swing.JLabel jLabelHyperlink;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextAreaInstructions;
     // End of variables declaration//GEN-END:variables
