@@ -99,7 +99,6 @@ public class mainJFrame extends javax.swing.JFrame {
             }
         });
         
-        System.out.print("program running :)");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
