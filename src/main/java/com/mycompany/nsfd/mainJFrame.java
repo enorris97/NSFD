@@ -5,8 +5,6 @@
  */
 package com.mycompany.nsfd;
 
-import java.awt.event.ActionEvent;
-
 /**
  *
  * @author Ellie
@@ -40,6 +38,11 @@ public class mainJFrame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextAreaInstructions);
 
         jButtonGo.setText("Go");
+        jButtonGo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -66,6 +69,17 @@ public class mainJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonGoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGoActionPerformed
+    //action when jButtonGo is pressed - runs analysis and opens resultsJFrame, closing this jFrame in the procces 
+
+            //run analysis
+            
+            //open results jFrame
+            new resultsJFrame().setVisible(true);
+            //closes current frame
+            dispose();
+    }//GEN-LAST:event_jButtonGoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -98,25 +112,12 @@ public class mainJFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new mainJFrame().setVisible(true);
+                
             }
         });
         
     }
     
-    //action when jButtonGo is pressed - runs analysis and opens resultsJFrame, closing this jFrame in the procces
-    
-    public void actionPerformed(ActionEvent e){
-        
-        if(e.getSource()== jButtonGo){
-            //run analysis
-            
-            //onep results jFrame
-            
-            //closes current frame
-            dispose();
-        }
-        
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonGo;
