@@ -10,5 +10,8 @@ package com.mycompany.nsfd;
  * @author Ellie
  */
 public class Hyperlink {
+    /*used to set up a hyperlink jLabelHyperlink to the webpage for the application providing 
+      the user with instructions and further information
+    */
     
 }
