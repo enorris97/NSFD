@@ -5,6 +5,9 @@
  */
 package com.mycompany.nsfd;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 
 /**
@@ -31,10 +34,10 @@ public class disclaimer extends javax.swing.JFrame {
 
         jMenu1 = new javax.swing.JMenu();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelDisclaimer = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jCheckTermsD = new javax.swing.JCheckBox();
+        jTextDisclaimer = new javax.swing.JTextArea();
+        jCheckTerms = new javax.swing.JCheckBox();
         jButtonStart = new javax.swing.JButton();
 
         jMenu1.setText("jMenu1");
@@ -44,13 +47,13 @@ public class disclaimer extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Disclaimer");
+        jLabelDisclaimer.setText("Disclaimer");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jTextDisclaimer.setColumns(20);
+        jTextDisclaimer.setRows(5);
+        jScrollPane1.setViewportView(jTextDisclaimer);
 
-        jCheckTermsD.setText("I have read and agree to these terms");
+        jCheckTerms.setText("I have read and agree to these terms");
 
         jButtonStart.setText("Start");
         jButtonStart.addActionListener(new java.awt.event.ActionListener() {
@@ -67,26 +70,26 @@ public class disclaimer extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jCheckTermsD)
+                        .addComponent(jCheckTerms)
                         .addGap(44, 44, 44)
                         .addComponent(jButtonStart))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabelDisclaimer, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabelDisclaimer, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckTermsD)
+                    .addComponent(jCheckTerms)
                     .addComponent(jButtonStart))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
@@ -96,7 +99,7 @@ public class disclaimer extends javax.swing.JFrame {
 
     private void jButtonStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStartActionPerformed
         // TODO add your handling code here:
-        if(jCheckTermsD.isSelected()){
+        if(jCheckTerms.isSelected()){
             
             //start analysis
             
@@ -105,13 +108,51 @@ public class disclaimer extends javax.swing.JFrame {
             //closes current frame
             dispose();
         }else{
-            accept = "Please accept the terms to continue";
+            String accept = "Please accept the terms to continue";
             JOptionPane.showMessageDialog(null, accept);
         }
         
     }//GEN-LAST:event_jButtonStartActionPerformed
-    
-    
+
+    /**
+     *
+     */
+    public void setText(){
+     String fileName = "D:\\NetBeansProjects\\NSFD\\src\\main\\java\\com\\mycompany\\nsfd\\testText";
+        
+        try{
+            byte[] buffer = new byte[1000];
+            
+            FileInputStream inputStream = new FileInputStream(fileName);
+            
+            int total = 0;
+            int nRead = 0;
+            
+            while ((nRead = inputStream.read(buffer))!= -1){
+                Disclaimer.append(new String(buffer));
+                total += nRead;
+            }
+            
+            inputStream.close();
+            
+            System.out.println ("Read" +total+ "bytes");
+            
+        }
+        catch(FileNotFoundException ex) {
+            System.out.println(
+                "Unable to open file '" + 
+                fileName + "'");                
+        }
+        catch(IOException ex) {
+            System.out.println(
+                "Error reading file '" 
+                + fileName + "'");                  
+            // Or we could just do this: 
+            // ex.printStackTrace();
+        }
+        
+        jTextDisclaimer.setText(Disclaimer.toString());
+    }
     /**
      * @param args the command line arguments
      */
@@ -139,6 +180,8 @@ public class disclaimer extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        
+        
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -151,13 +194,13 @@ public class disclaimer extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonStart;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
-    private javax.swing.JCheckBox jCheckTermsD;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JCheckBox jCheckTerms;
+    private javax.swing.JLabel jLabelDisclaimer;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextDisclaimer;
     // End of variables declaration//GEN-END:variables
-    private String accept;
-
+    
+    private  StringBuilder Disclaimer; 
 
 }
