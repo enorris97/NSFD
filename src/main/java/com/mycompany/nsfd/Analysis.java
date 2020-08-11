@@ -9,8 +9,7 @@ package com.mycompany.nsfd;
  *
  * @author Ellie
  */
-public class StartProgram {
-    public static void main(String args[]){
-        new disclaimer().setVisible(true);
-    }
+public class Analysis {
+    //run all of the anaylsis components from here
+    
 }
