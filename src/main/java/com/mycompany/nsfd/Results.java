@@ -9,8 +9,6 @@ package com.mycompany.nsfd;
  *
  * @author Ellie
  */
-public class StartProgram {
-    public static void main(String args[]){
-        new disclaimer().setVisible(true);
-    }
+public class Results {
+    //compiles all the results of the analysis' and collated them to be displayed
 }
