@@ -1,3 +1,36 @@
 This software is intended for personal use only, on a network you have the rights to access. 
 Any use of this software for reasons other than this are not sanctioned by the developer and 
 if know will be reported to the appropriate authorities.
+
+read from file
+String fileName = "testText";
+  try{
+            byte[] buffer = new byte[1000];
+            
+            FileInputStream inputStream = new FileInputStream(fileName);
+            
+            int total = 0;
+            int nRead = 0;
+            
+            while ((nRead = inputStream.read(buffer))!= -1){
+                Disclaimer.append(new String(buffer));
+                total += nRead;
+            }
+            
+            inputStream.close();
+            
+            System.out.println ("Read" +total+ "bytes");
+            
+        }
+        catch(FileNotFoundException ex) {
+            System.out.println(
+                "Unable to open file '" + 
+                fileName + "'");                
+        }
+        catch(IOException ex) {
+            System.out.println(
+                "Error reading file '" 
+                + fileName + "'");                  
+            // Or we could just do this: 
+            // ex.printStackTrace();
+        }

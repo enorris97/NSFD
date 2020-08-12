@@ -20,6 +20,8 @@ public class disclaimer extends javax.swing.JFrame {
      * Creates new form initial
      */
     public disclaimer() {
+        
+        
         initComponents();
     }
 
@@ -35,10 +37,10 @@ public class disclaimer extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jLabelDisclaimer = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextDisclaimer = new javax.swing.JTextArea();
         jCheckTerms = new javax.swing.JCheckBox();
         jButtonStart = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextDisclaimer = new javax.swing.JTextArea();
 
         jMenu1.setText("jMenu1");
 
@@ -49,10 +51,6 @@ public class disclaimer extends javax.swing.JFrame {
 
         jLabelDisclaimer.setText("Disclaimer");
 
-        jTextDisclaimer.setColumns(20);
-        jTextDisclaimer.setRows(5);
-        jScrollPane1.setViewportView(jTextDisclaimer);
-
         jCheckTerms.setText("I have read and agree to these terms");
 
         jButtonStart.setText("Start");
@@ -61,6 +59,14 @@ public class disclaimer extends javax.swing.JFrame {
                 jButtonStartActionPerformed(evt);
             }
         });
+
+        jTextDisclaimer.setEditable(false);
+        jTextDisclaimer.setColumns(20);
+        jTextDisclaimer.setLineWrap(true);
+        jTextDisclaimer.setRows(5);
+        jTextDisclaimer.setText("This software is intended for personal use only, on a network you have the rights to access. Any use of this software for reasons other than this are not sanctioned by the developer and if know will be reported to the appropriate authorities.");
+        jTextDisclaimer.setWrapStyleWord(true);
+        jScrollPane1.setViewportView(jTextDisclaimer);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,19 +81,22 @@ public class disclaimer extends javax.swing.JFrame {
                         .addComponent(jButtonStart))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelDisclaimer, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(30, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabelDisclaimer, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelDisclaimer, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(13, 13, 13)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCheckTerms)
                     .addComponent(jButtonStart))
@@ -113,46 +122,8 @@ public class disclaimer extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButtonStartActionPerformed
-
-    /**
-     *
-     */
-    public void setText(){
-     String fileName = "D:\\NetBeansProjects\\NSFD\\src\\main\\java\\com\\mycompany\\nsfd\\testText";
-        
-        try{
-            byte[] buffer = new byte[1000];
-            
-            FileInputStream inputStream = new FileInputStream(fileName);
-            
-            int total = 0;
-            int nRead = 0;
-            
-            while ((nRead = inputStream.read(buffer))!= -1){
-                Disclaimer.append(new String(buffer));
-                total += nRead;
-            }
-            
-            inputStream.close();
-            
-            System.out.println ("Read" +total+ "bytes");
-            
-        }
-        catch(FileNotFoundException ex) {
-            System.out.println(
-                "Unable to open file '" + 
-                fileName + "'");                
-        }
-        catch(IOException ex) {
-            System.out.println(
-                "Error reading file '" 
-                + fileName + "'");                  
-            // Or we could just do this: 
-            // ex.printStackTrace();
-        }
-        
-        jTextDisclaimer.setText(Disclaimer.toString());
-    }
+   
+    
     /**
      * @param args the command line arguments
      */
@@ -187,6 +158,7 @@ public class disclaimer extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new disclaimer().setVisible(true);
+                
             }
         });
     }
@@ -198,9 +170,9 @@ public class disclaimer extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelDisclaimer;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextDisclaimer;
+    private static javax.swing.JTextArea jTextDisclaimer;
     // End of variables declaration//GEN-END:variables
     
-    private  StringBuilder Disclaimer; 
+    
 
 }
