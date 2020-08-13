@@ -38,7 +38,6 @@ public class resultsJFrame extends javax.swing.JFrame {
 
         jTextAreaResults.setColumns(20);
         jTextAreaResults.setRows(5);
-        jTextAreaResults.setText(Results());
         jScrollPane1.setViewportView(jTextAreaResults);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
