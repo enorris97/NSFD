@@ -20,7 +20,7 @@ public class cmdTesting {
     ProcessBuilder test1 = new ProcessBuilder();
     
     String cmd ="netsh WLAN show interface ";
-    //shosw current network interface information
+    //shows current network interface information
     
     test1.command("cmd.exe", "/C", cmd);
     
