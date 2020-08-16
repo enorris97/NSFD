@@ -34,12 +34,37 @@ public class cmdTesting {
         String line;
         
         while ((line = reader.readLine()) != null){
-            output.append(line + "\n");  
+            //now chck if the line is security related
+           String reason; 
+           if(line.contains("Radio type")){
+               reason = "The standards that govern the protocol for your WiFi, "
+                       + "most importantly for security. The common are 802.11n "
+                       + "or 802.11ac. If you have a differnt sresult see the "
+                       + "website for further information. ";
+               output.append(line + "\n"); 
+               output.append(reason + "\n" + "\n");
+           }else if(line.contains("Authentication")){
+               reason = "";
+               output.append(line + "\n"); 
+               output.append(reason +"\n");
+           }else if(line.contains("Cipher")){
+               reason = "";
+               output.append(line + "\n"); 
+               output.append(reason +"\n");;
+           }else if(line.contains("Connection mode")){
+               reason = "";
+               output.append(line + "\n"); 
+               output.append(reason +"\n");
+           }else if(line.contains("Channel")){
+               reason = "";
+               output.append(line + "\n"); 
+               output.append(reason +"\n");
+           }
         }
         
         int exitval = processTest.waitFor();
         if (exitval ==0){
-            System.out.print("Command exists");
+            System.out.println("Command exists");
             System.out.print(output);
             System.exit(0);
         }

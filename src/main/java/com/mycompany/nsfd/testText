@@ -34,3 +34,6 @@ String fileName = "testText";
             // Or we could just do this: 
             // ex.printStackTrace();
         }
+
+Analysis analysis = new Analysis();
+output = analysis.output.toString();

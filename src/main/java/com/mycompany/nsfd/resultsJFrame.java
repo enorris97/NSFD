@@ -5,6 +5,10 @@
  */
 package com.mycompany.nsfd;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 /**
  *
  * @author Ellie
@@ -18,9 +22,10 @@ public class resultsJFrame extends javax.swing.JFrame {
         initComponents();
     }
 
-    //print from results to the GUI
-    
-    
+    /**
+     *
+     */
+            
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,32 +38,102 @@ public class resultsJFrame extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaResults = new javax.swing.JTextArea();
+        jLabelResults = new javax.swing.JLabel();
+        jButtonWebLink = new javax.swing.JButton();
+        jButtonExit = new javax.swing.JButton();
+        jButtonRestart = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jTextAreaResults.setEditable(false);
         jTextAreaResults.setColumns(20);
+        jTextAreaResults.setLineWrap(true);
         jTextAreaResults.setRows(5);
+        jTextAreaResults.setText(Analysis());
+        jTextAreaResults.setWrapStyleWord(true);
         jScrollPane1.setViewportView(jTextAreaResults);
+
+        jLabelResults.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabelResults.setText("Results:");
+
+        jButtonWebLink.setText("Website");
+        jButtonWebLink.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonWebLinkActionPerformed(evt);
+            }
+        });
+
+        jButtonExit.setText("Exit");
+        jButtonExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExitActionPerformed(evt);
+            }
+        });
+
+        jButtonRestart.setText("Restart");
+        jButtonRestart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRestartActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabelResults, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jButtonWebLink)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonRestart)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonExit, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelResults, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonWebLink)
+                    .addComponent(jButtonExit)
+                    .addComponent(jButtonRestart))
+                .addGap(25, 25, 25))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jButtonExitActionPerformed
+
+    private void jButtonWebLinkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWebLinkActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonWebLinkActionPerformed
+
+    private void jButtonRestartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRestartActionPerformed
+        // TODO add your handling code here:
+        //opens a new frame which rereuns the analysis
+        new resultsJFrame().setVisible(true);
+            
+        //closes current frame
+            dispose();
+    }//GEN-LAST:event_jButtonRestartActionPerformed
 
     /**
      * @param args the command line arguments
@@ -86,7 +161,6 @@ public class resultsJFrame extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(resultsJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -96,8 +170,75 @@ public class resultsJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonExit;
+    private javax.swing.JButton jButtonRestart;
+    private javax.swing.JButton jButtonWebLink;
+    private javax.swing.JLabel jLabelResults;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextAreaResults;
     // End of variables declaration//GEN-END:variables
-    //jTextArea - where the results of the analysis on the network are displayed
+
+    private String Analysis() {
+        StringBuilder output = null;
+        ProcessBuilder test1 = new ProcessBuilder();
+        
+    
+        String cmd ="netsh WLAN show interface ";
+    //show current network interface information
+    
+        test1.command("cmd.exe", "/C", cmd);
+    
+        try{
+            Process processTest = test1.start();
+        
+            output = new StringBuilder();
+        
+            BufferedReader reader = new BufferedReader(new InputStreamReader(processTest.getInputStream()));
+        
+            String line;
+        
+            while ((line = reader.readLine()) != null){
+            //now check if the line is security related, and returns why
+                String reason; 
+                if(line.contains("Radio type")){
+                    reason = "The standards that govern the protocol for your WiFi, "
+                            + "most importantly for security. The common are 802.11n "
+                            + "or 802.11ac. If you have a differnt result see the "
+                            + "website for further information. ";
+                    output.append(line + "\n"); 
+                    output.append(reason + "\n" + "\n");
+                }else if(line.contains("Authentication")){
+                    reason = "The type of aithentication used can effect your security. X is the standard that should be here";
+                    output.append(line + "\n"); 
+                     output.append(reason +"\n");
+                }else if(line.contains("Cipher")){
+                    reason = "";
+                    output.append(line + "\n"); 
+                    output.append(reason +"\n");;
+                }else if(line.contains("Connection mode")){
+                    reason = "";
+                    output.append(line + "\n"); 
+                    output.append(reason +"\n");
+                }else if(line.contains("Channel")){
+                    reason = "";
+                    output.append(line + "\n"); 
+                    output.append(reason +"\n");
+                }
+                }
+        
+            int exitval = processTest.waitFor();
+            if (exitval ==0){
+                System.out.println("Command exists");
+                System.out.print(output);
+                //System.exit(0);
+            }
+        }catch(IOException | InterruptedException e){
+            e.printStackTrace();
+        }
+        
+            return output.toString();
+    }
 }
+
+    
+    //jTextArea - where the results of the analysis on the network are displayed

@@ -5,19 +5,16 @@
  */
 package com.mycompany.nsfd;
 
-import java.awt.Component;
-import javax.swing.JLabel;
-
 /**
  *
  * @author Ellie
  */
 public class mainJFrame extends javax.swing.JFrame {
 
-    private Hyperlink LinkInstructions; 
-    /** creates a hyperlink to the instruction page on the application website
+   /* private Hyperlink LinkInstructions; 
+    * creates a hyperlink to the instruction page on the application website
      *
-     */   
+      
     //setup hyperlink
     private void linkSetup(){
         this.LinkInstructions = new Hyperlink("Instructions", "https://networkscannerfordummies.wordpress.com/instructions/", "View Instructions");
@@ -27,12 +24,12 @@ public class mainJFrame extends javax.swing.JFrame {
         LinkInstructions.setLocation(newX, newY + 50);
         LinkInstructions.setVisible(true);
     }
-
+*/  
     /**
      * Creates new form mainJFrame
      */
     public void mainJFrame() {
-        linkSetup();
+        
         initComponents();
     }
 
@@ -101,9 +98,10 @@ public class mainJFrame extends javax.swing.JFrame {
     //action when jButtonGo is pressed - runs analysis and opens resultsJFrame, closing this jFrame in the procces 
 
             //start analysis
-            
+            Analysis go = new Analysis();
             //open results jFrame
             new resultsJFrame().setVisible(true);
+            
             //closes current frame
             dispose();
     }//GEN-LAST:event_jButtonGoActionPerformed

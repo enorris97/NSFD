@@ -113,7 +113,7 @@ public class disclaimer extends javax.swing.JFrame {
             //start analysis
             
             //open results jFrame
-            new resultsJFrame().setVisible(true);
+            new startJFrame().setVisible(true);
             //closes current frame
             dispose();
         }else{
