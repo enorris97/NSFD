@@ -4,20 +4,17 @@
  * and open the template in the editor.
  */
 package com.mycompany.nsfd;
-
-import java.awt.Component;
-import javax.swing.JLabel;
-
+//was orininal mainJFrame but hadf an error which meant the JFrame didnt show up correctly so I just made startJFrame to replace it
 /**
  *
  * @author Ellie
  */
 public class mainJFrame extends javax.swing.JFrame {
 
-    private Hyperlink LinkInstructions; 
-    /** creates a hyperlink to the instruction page on the application website
+   /* private Hyperlink LinkInstructions; 
+    * creates a hyperlink to the instruction page on the application website
      *
-     */   
+      
     //setup hyperlink
     private void linkSetup(){
         this.LinkInstructions = new Hyperlink("Instructions", "https://networkscannerfordummies.wordpress.com/instructions/", "View Instructions");
@@ -27,12 +24,12 @@ public class mainJFrame extends javax.swing.JFrame {
         LinkInstructions.setLocation(newX, newY + 50);
         LinkInstructions.setVisible(true);
     }
-
+*/  
     /**
      * Creates new form mainJFrame
      */
     public void mainJFrame() {
-        linkSetup();
+        
         initComponents();
     }
 
@@ -98,12 +95,11 @@ public class mainJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonGoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGoActionPerformed
-    //action when jButtonGo is pressed - runs analysis and opens resultsJFrame, closing this jFrame in the procces 
+    //action when jButtonGo is pressed - opens resultsJFrame, closing this jFrame in the procces 
 
-            //start analysis
-            
             //open results jFrame
             new resultsJFrame().setVisible(true);
+            
             //closes current frame
             dispose();
     }//GEN-LAST:event_jButtonGoActionPerformed
@@ -135,14 +131,15 @@ public class mainJFrame extends javax.swing.JFrame {
         }
         //</editor-fold>
         
-        /* Create and display the form 
+        
+        //Create and display the form 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new mainJFrame().setVisible(true);
                 
             }
         });
-        */
+        
         
     }
     
