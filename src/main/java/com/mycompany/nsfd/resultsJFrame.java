@@ -5,9 +5,13 @@
  */
 package com.mycompany.nsfd;
 
+import java.awt.Desktop;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.URI;
+import java.net.URISyntaxException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -124,6 +128,19 @@ public class resultsJFrame extends javax.swing.JFrame {
 
     private void jButtonWebLinkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWebLinkActionPerformed
         // TODO add your handling code here:
+        
+         try {
+                     
+                        Desktop.getDesktop().browse(new URI("https://networkscannerfordummies.wordpress.com/instructions/"));
+                        //attempt to open link on browser
+                     
+                    } catch (IOException | URISyntaxException e1) {
+                        //error message if link is broken
+                            JOptionPane.showMessageDialog(null,
+                                "Could not open the hyperlink. Error: " + e1.getMessage(),
+                                "Error",
+                                JOptionPane.ERROR_MESSAGE);
+                    }
     }//GEN-LAST:event_jButtonWebLinkActionPerformed
 
     private void jButtonRestartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRestartActionPerformed
