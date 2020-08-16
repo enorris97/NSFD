@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package com.mycompany.nsfd;
-
+//was orininal mainJFrame but hadf an error which meant the JFrame didnt show up correctly so I just made startJFrame to replace it
 /**
  *
  * @author Ellie
@@ -95,10 +95,8 @@ public class mainJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonGoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGoActionPerformed
-    //action when jButtonGo is pressed - runs analysis and opens resultsJFrame, closing this jFrame in the procces 
+    //action when jButtonGo is pressed - opens resultsJFrame, closing this jFrame in the procces 
 
-            //start analysis
-            Analysis go = new Analysis();
             //open results jFrame
             new resultsJFrame().setVisible(true);
             

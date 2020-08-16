@@ -25,12 +25,7 @@ public class resultsJFrame extends javax.swing.JFrame {
     public resultsJFrame() {
         initComponents();
     }
-
-    /**
-     *
-     */
-            
-    
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -128,11 +123,11 @@ public class resultsJFrame extends javax.swing.JFrame {
 
     private void jButtonWebLinkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWebLinkActionPerformed
         // TODO add your handling code here:
-        
+        //open application website on instruction page
          try {
                      
                         Desktop.getDesktop().browse(new URI("https://networkscannerfordummies.wordpress.com/instructions/"));
-                        //attempt to open link on browser
+                        //attempt to open link in browser
                      
                     } catch (IOException | URISyntaxException e1) {
                         //error message if link is broken
@@ -149,7 +144,7 @@ public class resultsJFrame extends javax.swing.JFrame {
         new resultsJFrame().setVisible(true);
             
         //closes current frame
-            dispose();
+        dispose();
     }//GEN-LAST:event_jButtonRestartActionPerformed
 
     /**
@@ -185,37 +180,30 @@ public class resultsJFrame extends javax.swing.JFrame {
             }
         });
     }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonExit;
-    private javax.swing.JButton jButtonRestart;
-    private javax.swing.JButton jButtonWebLink;
-    private javax.swing.JLabel jLabelResults;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextAreaResults;
-    // End of variables declaration//GEN-END:variables
-
     private String Analysis() {
         StringBuilder output = null;
         ProcessBuilder test1 = new ProcessBuilder();
         
     
         String cmd ="netsh WLAN show interface ";
-    //show current network interface information
+        //show current network interface information command
     
         test1.command("cmd.exe", "/C", cmd);
+        //set format for command
     
         try{
+        //attempt to run the command in shell
             Process processTest = test1.start();
         
             output = new StringBuilder();
         
             BufferedReader reader = new BufferedReader(new InputStreamReader(processTest.getInputStream()));
+            //read the output from the shell
         
             String line;
         
             while ((line = reader.readLine()) != null){
-            //now check if the line is security related, and returns why
+            //now check if the line is security related, and returns reasons with line if true
                 String reason; 
                 if(line.contains("Radio type")){
                     reason = "The standards that govern the protocol for your WiFi, "
@@ -225,37 +213,59 @@ public class resultsJFrame extends javax.swing.JFrame {
                     output.append(line + "\n"); 
                     output.append(reason + "\n" + "\n");
                 }else if(line.contains("Authentication")){
-                    reason = "The type of aithentication used can effect your security. X is the standard that should be here";
+                    reason = "The type of athentication method used can effect your "
+                            + "security, as some are more secure than others, as "
+                            + "well as effecting other settings that can be enabled."
+                            + " WPA2 is the most common current standard, but are "
+                            + "acceptible as well. If you network has no authentication, "
+                            + "anyone can connect to the network which means anyone "
+                            + "can access your data on the network.";
                     output.append(line + "\n"); 
-                     output.append(reason +"\n");
+                    output.append(reason + "\n" + "\n");
                 }else if(line.contains("Cipher")){
-                    reason = "";
+                    reason = "The encryption protocol for the network, effecting "
+                            + "data privacy, integrity and authentication. Should "
+                            + "be CCMP if the Authentication is WPA2 as they work "
+                            + "together other wise there could be breach in your "
+                            + "security. Privacy, authenticity and integrity are "
+                            + "the pillars of network security.";
                     output.append(line + "\n"); 
-                    output.append(reason +"\n");;
-                }else if(line.contains("Connection mode")){
-                    reason = "";
-                    output.append(line + "\n"); 
-                    output.append(reason +"\n");
+                    output.append(reason + "\n" + "\n");
                 }else if(line.contains("Channel")){
-                    reason = "";
+                    reason = "Although not directly a security feature, if your "
+                            + "network is slow you may want to change the channel "
+                            + "rather than downloading unknown software from the "
+                            + "internet claiming to speed up your network.";
                     output.append(line + "\n"); 
-                    output.append(reason +"\n");
+                    output.append(reason + "\n" + "\n");
                 }
-                }
-        
+            }
+        /*
+            //used to print results to console and break during method testing
             int exitval = processTest.waitFor();
             if (exitval ==0){
                 System.out.println("Command exists");
                 System.out.print(output);
-                //System.exit(0);
+                System.exit(0);
             }
-        }catch(IOException | InterruptedException e){
+            */
+        }catch(IOException e){
             e.printStackTrace();
         }
         
             return output.toString();
     }
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonExit;
+    private javax.swing.JButton jButtonRestart;
+    private javax.swing.JButton jButtonWebLink;
+    private javax.swing.JLabel jLabelResults;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextAreaResults;
+    // End of variables declaration//GEN-END:variables
+    //jTextArea - where the results of the analysis on the network are displayed
+   
 }
 
     
-    //jTextArea - where the results of the analysis on the network are displayed
+    

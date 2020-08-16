@@ -108,10 +108,9 @@ public class disclaimer extends javax.swing.JFrame {
 
     private void jButtonStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStartActionPerformed
         // TODO add your handling code here:
+        //move to the start Jframe if the terms are accepted
         if(jCheckTerms.isSelected()){
-            
-            //start analysis
-            
+          
             //open results jFrame
             new startJFrame().setVisible(true);
             //closes current frame
