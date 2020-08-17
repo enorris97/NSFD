@@ -216,8 +216,7 @@ public class resultsJFrame extends javax.swing.JFrame {
                     reason = "The type of athentication method used can effect your "
                             + "security, as some are more secure than others, as "
                             + "well as effecting other settings that can be enabled."
-                            + " WPA2 is the most common current standard, but are "
-                            + "acceptible as well. If you network has no authentication, "
+                            + " WPA2 is the most common current standard. If you network has no authentication, "
                             + "anyone can connect to the network which means anyone "
                             + "can access your data on the network.";
                     output.append(line + "\n"); 
