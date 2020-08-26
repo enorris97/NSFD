@@ -37,9 +37,16 @@ public class startJFrame extends javax.swing.JFrame {
 
         jLabelInstructions.setText("Instructions");
 
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
         jTextInstructions.setEditable(false);
         jTextInstructions.setColumns(20);
+        jTextInstructions.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
+        jTextInstructions.setLineWrap(true);
         jTextInstructions.setRows(5);
+        jTextInstructions.setText("1. Make sure your computer is connected to your network you want to scan\n\n2.Press the start button.\n\n3.Read the analysis carefully\n\n\n\nAny issues please go to the website at networkscannerfordummies.wordpress.com or use the button on the results page.");
+        jTextInstructions.setWrapStyleWord(true);
         jScrollPane1.setViewportView(jTextInstructions);
 
         jButtonStart.setText("Start");
@@ -58,12 +65,12 @@ public class startJFrame extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelInstructions)))
+                            .addComponent(jLabelInstructions)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(170, 170, 170)
+                        .addGap(185, 185, 185)
                         .addComponent(jButtonStart)))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -71,10 +78,10 @@ public class startJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabelInstructions)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonStart)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
