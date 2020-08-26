@@ -64,7 +64,9 @@ public class disclaimer extends javax.swing.JFrame {
         jTextDisclaimer.setColumns(20);
         jTextDisclaimer.setLineWrap(true);
         jTextDisclaimer.setRows(5);
-        jTextDisclaimer.setText("This software is intended for personal use only, on a network you have the rights to access. Any use of this software for reasons other than this are not sanctioned by the developer and if know will be reported to the appropriate authorities.");
+        jTextDisclaimer.setText("This software is intended for personal use only, on a network you "
+        		+ "have the rights to access. Any use of this software for reasons other than this "
+        		+ "are not sanctioned by the developer and if know will result in access to the program being revoked.");
         jTextDisclaimer.setWrapStyleWord(true);
         jScrollPane1.setViewportView(jTextDisclaimer);
 
